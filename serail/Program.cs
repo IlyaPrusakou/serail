@@ -41,7 +41,7 @@ namespace serail
                 }
            };
 
-            XmlSerializer xmlSerializer = new XmlSerializer(arr.GetType());
+            XmlSerializer xmlSerializer = new XmlSerializer(arr.GetType()); // homework
             string result;
             using (StringWriter textWriter = new StringWriter())
             {
@@ -50,7 +50,7 @@ namespace serail
             }
             Console.WriteLine(result);
             Song[] songarray;
-            using (StringReader rdr = new StringReader(result))
+            using (StringReader rdr = new StringReader(result))// homework
             {
                 songarray = (Song[])xmlSerializer.Deserialize(rdr);
             }
@@ -58,7 +58,7 @@ namespace serail
             XmlWriterSettings set = new XmlWriterSettings();
             set.Indent = true;
             set.Encoding = Encoding.UTF8;
-            using (FileStream fs = new FileStream(@"D:\ДЗ\serial\serail\files\NNN.xml", FileMode.Create))
+            using (FileStream fs = new FileStream(@"D:\ДЗ\serial\serail\files\NNN.xml", FileMode.Create))// homework
             {
                 using (XmlWriter wrt = XmlWriter.Create(fs, set))
                 {
@@ -66,14 +66,14 @@ namespace serail
                 }
             }
             Song[] arrFromFile;
-            using (FileStream fs = new FileStream(@"D:\ДЗ\serial\serail\files\NNN.xml", FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream fs = new FileStream(@"D:\ДЗ\serial\serail\files\NNN.xml", FileMode.Open, FileAccess.ReadWrite))// homework
             {
                 using (XmlReader wrt = XmlReader.Create(fs))
                 {
                    arrFromFile = (Song[])xmlSerializer.Deserialize(wrt);
                 }
             }
-            foreach (Song item in arrFromFile)
+            foreach (Song item in arrFromFile)// homework
             {
                 Console.WriteLine(item.Title);
             }
